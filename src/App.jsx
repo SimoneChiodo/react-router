@@ -6,6 +6,9 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import PostsPage from "./pages/PostsPage";
 
+// Layout
+import DefaultLayout from "./layouts/DefaultLayout";
+
 // Custom CSS
 import "./assets/App.css";
 
@@ -16,9 +19,11 @@ function App() {
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route index Component={HomePage} />
-                    <Route path="/about" Component={AboutPage} />
-                    <Route path="/posts" Component={PostsPage} />
+                    <Route Component={DefaultLayout}>
+                        <Route index Component={HomePage} />
+                        <Route path="/about" Component={AboutPage} />
+                        <Route path="/posts" Component={PostsPage} />
+                    </Route>
                 </Routes>
             </BrowserRouter>
         </>

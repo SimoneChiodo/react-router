@@ -1,16 +1,12 @@
+import { Outlet } from "react-router-dom";
+
 // Components
 import Navbar from "../components/Navbar";
 
 export default function AboutPage() {
     return (
         <>
-            <header>
-                <Navbar />
-            </header>
-
-            <main>
-                <h1>About</h1>
-            </main>
+            <h1>About</h1>
         </>
     );
 }
