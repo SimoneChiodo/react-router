@@ -1,15 +1,19 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Components
 import App from "./App.jsx";
 
 // Bootstrap JS
+import * as bootstrap from "bootstrap";
 
 // Bootstrap CSS
-// import "../node_modules"
+import "bootstrap/dist/css/bootstrap.min.css";
 // Custom CSS
-import "./index.css";
+import "./assets/index.css";
 
-createRoot(document.getElementById("root")).render(<App />);
+createRoot(document.getElementById("root")).render(
+    <StrictMode>
+        <App />
+    </StrictMode>
+);

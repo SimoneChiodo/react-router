@@ -1,31 +1,26 @@
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// Components
+// Pages
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import PostsPage from "./pages/PostsPage";
 
 // Custom CSS
-import "./App.css";
+import "./assets/App.css";
 
 function App() {
     const [count, setCount] = useState(0);
 
     return (
         <>
-            <header>
-                <NavBar />
-            </header>
-
-            <main>
-                <BrowserRouter>
-                    <Routes>
-                        <Route index component={HomePage} />
-                        <Route path="/about" component={AboutPage} />
-                        <Route path="/posts" component={PostsPage} />
-                    </Routes>
-                </BrowserRouter>
-            </main>
+            <BrowserRouter>
+                <Routes>
+                    <Route index Component={HomePage} />
+                    <Route path="/about" Component={AboutPage} />
+                    <Route path="/posts" Component={PostsPage} />
+                </Routes>
+            </BrowserRouter>
         </>
     );
 }

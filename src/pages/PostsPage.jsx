@@ -1,7 +1,16 @@
+// Components
+import Navbar from "../components/Navbar";
+
 export default function PostsPage() {
     return (
         <>
-            <h1>Posts</h1>
+            <header>
+                <Navbar />
+            </header>
+
+            <main>
+                <h1>Posts</h1>
+            </main>
         </>
     );
 }
