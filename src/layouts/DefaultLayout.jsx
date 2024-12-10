@@ -10,7 +10,7 @@ export default function DefaultLayout() {
                 <Navbar />
             </header>
 
-            <main>
+            <main className="d-flex flex-column align-items-center justify-content-center p-2 mt-5">
                 <Outlet />
             </main>
         </>
