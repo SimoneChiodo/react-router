@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 export default function ShowPosts() {
     const apiUrl = import.meta.env.VITE_API_URL;
@@ -34,17 +34,31 @@ export default function ShowPosts() {
     return (
         <>
             <div className="container">
-                <h1 className="">Dettagli {post.title}</h1>
+                <div className="d-flex justify-content-between align-items-center">
+                    {/* Titolo Pagina */}
+                    <h1>Dettagli {post.title}</h1>
+
+                    {/* Pulsante Indietro */}
+                    <Link
+                        to={`/posts`}
+                        type="button"
+                        className="btn btn-primary"
+                    >
+                        Indietro
+                    </Link>
+                </div>
 
                 <div className="d-flex gap-3 mt-3">
                     {post && (
                         <>
+                            {/* Immagine Post */}
                             <img
                                 src={post.image}
                                 alt={post.title + "-image"}
                                 width="400"
                             />
 
+                            {/* Dettagli Post */}
                             <ul>
                                 <li>
                                     <b>Titolo:</b> {post.title}
