@@ -14,7 +14,7 @@ export default function IndexPosts() {
 
     return (
         <>
-            <div className="container">
+            <div className="container mt-3">
                 <table className="table table-bordered border-dark">
                     <thead>
                         <tr>

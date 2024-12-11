@@ -25,11 +25,7 @@ export default function ShowPosts() {
                 return res.json();
             })
             .then((data) => {
-                console.table(data);
-
                 const { post: newPost } = data;
-                console.log(newPost);
-
                 setPost(newPost);
             })
             .catch((err) => console.error(err));
@@ -38,13 +34,58 @@ export default function ShowPosts() {
     return (
         <>
             <div className="container">
-                {post && (
-                    <img
-                        src={post.image}
-                        alt={post.title + "-image"}
-                        width="200"
-                    />
-                )}
+                <h1 className="">Dettagli {post.title}</h1>
+
+                <div className="d-flex gap-3 mt-3">
+                    {post && (
+                        <>
+                            <img
+                                src={post.image}
+                                alt={post.title + "-image"}
+                                width="400"
+                            />
+
+                            <ul>
+                                <li>
+                                    <b>Titolo:</b> {post.title}
+                                </li>
+                                <li>
+                                    <b>Autore:</b> {post.author}
+                                </li>
+                                <li>
+                                    <b>Descrizione:</b> {post.description}
+                                </li>
+                                <li>
+                                    <b>Genere:</b> {post.genre}
+                                </li>
+                                <li>
+                                    <b>Stato:</b> {post.status}
+                                </li>
+                                <li>
+                                    <b>Pubblicato:</b> {post.publish}
+                                </li>
+                                <li>
+                                    <b>Tag:</b>
+                                    <ul>
+                                        {Array.isArray(post.tags) ? (
+                                            post.tags.map((tag) => (
+                                                <li
+                                                    key={
+                                                        post.id + "-tag-" + tag
+                                                    }
+                                                >
+                                                    {tag}
+                                                </li>
+                                            ))
+                                        ) : (
+                                            <li>{post.tags}</li>
+                                        )}
+                                    </ul>
+                                </li>
+                            </ul>
+                        </>
+                    )}
+                </div>
             </div>
         </>
     );
