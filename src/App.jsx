@@ -13,6 +13,9 @@ import DefaultLayout from "./layouts/DefaultLayout";
 // Custom CSS
 import "./assets/App.css";
 
+// Posts CRUD
+import IndexPosts from "./pages/posts/IndexPosts";
+
 function App() {
     const [count, setCount] = useState(0);
 
