@@ -6,10 +6,21 @@ export default function IndexPosts() {
 
     const [posts, setPosts] = useState([]);
 
+    // Index Function - Salva localmente nella variabile "posts"
     fetch(`${apiUrl}/posts`)
         .then((res) => res.json())
         .then((data) => setPosts(data));
 
+    // Destroy Function
+    function Destroy(id) {
+        fetch(`${apiUrl}/posts/${id}`, { method: "DELETE" })
+            .then((res) => res.json())
+            .then((data) => {
+                count = 1;
+            });
+    }
+
+    // Variabile per contare il numero dei post
     let count = 1;
 
     return (
@@ -111,6 +122,7 @@ export default function IndexPosts() {
                                         type="button"
                                         className="btn btn-danger"
                                         data-bs-dismiss="modal"
+                                        onClick={() => Destroy(post.id)}
                                     >
                                         Elimina
                                     </button>
